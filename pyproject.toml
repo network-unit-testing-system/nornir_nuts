@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "nornir-nuts"
+version = "0.1.0"
+description = ""
+authors = ["ubaumann <github@m.ubaumann.ch>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+nornir = "^3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24"
+mypy = "^1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."nornir.plugins.runners"]
+"cachedThreaded" = "nornir_nuts.runners:CachedThreadedRunner"
+
+
+[tool.mypy]
+python_version = "3.8"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+ignore_errors = false
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_redundant_casts = true
