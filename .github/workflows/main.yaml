@@ -29,9 +29,9 @@ jobs:
         run: poetry install --no-interaction --no-root
 
       - name: Run black
-        run: poetry run black
+        run: poetry run black --check .
       - name: Run mypy
-        run: poetry run mypy
+        run: poetry run mypy . --pretty --show-error-context
 
   pytest:
     name: Testing on Python ${{ matrix.python-version }} (${{ matrix.platform}})
